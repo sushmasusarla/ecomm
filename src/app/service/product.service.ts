@@ -25,4 +25,10 @@ export class ProductService {
   getCart(): any[] {
     return this.cart;
   }
+
+   removeFromCart(productId: number) {
+    let cart = this.getCart();
+    cart = cart.filter((item: any) => item.id !== productId);
+    localStorage.setItem(this.cartKey, JSON.stringify(cart));
+  }
 }
