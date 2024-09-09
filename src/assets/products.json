@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "name": "Men's Shirt",
+      "description": "A stylish men's shirt.",
+      "price": 30.00
+    },
+    {
+      "id": 2,
+      "name": "Women's Saree",
+      "description": "Elegant women's saree.",
+      "price": 100.00
+    },
+    {
+      "id": 3,
+      "name": "Kids Night Suit",
+      "description": "Comfortable night suit for kids.",
+      "price": 25.00
+    },
+    {
+      "id": 4,
+      "name": "Gloves",
+      "description": "Warm winter gloves.",
+      "price": 15.00
+    }
+  ]
+  
