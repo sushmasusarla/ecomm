@@ -17,9 +17,10 @@ export class ProductListComponent  implements OnInit{
     });
   }
   addToCart(product: any) {
-    if (product.name === "Women's Saree") {
-      this.productService.addToCart(product);
-    }
+       this.productService.addToCart(product);
+   // if (product.name === "Women's Saree") {
+     // this.productService.addToCart(product);
+    //}
   }
 
 
