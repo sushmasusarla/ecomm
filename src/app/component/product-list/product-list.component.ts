@@ -22,6 +22,11 @@ export class ProductListComponent  implements OnInit{
      // this.productService.addToCart(product);
     //}
   }
-
+deleteProduct(id: number): void {
+  this.productService.deleteProduct(id).subscribe(updatedProducts => {
+    this.products = updatedProducts;
+    this.productService.updateProducts(updatedProducts); // Simulate saving the updated data
+  });
+}
 
 }
