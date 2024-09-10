@@ -1,11 +1,16 @@
-<div *ngFor="let product of products">
+
+<div class="prod">
+  <div *ngFor="let product of products">
+    <!---<h2>{{ product.image }}</h2> --->
     <h2>{{ product.name }}</h2>
     <p>{{ product.description }}</p>
     <p>\${{ product.price }}</p>
     
     <a routerLink="/cart">
     <button (click)="addToCart(product)">Add to Cart</button> </a>
-      <button (click)="deleteProduct(product.id)">Delete</button>
-
+    <button (click)="deleteProduct(product.id)">Delete</button>
   </div>
+
+</div>
+
   
