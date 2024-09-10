@@ -29,4 +29,14 @@ export class ProductService {
    removeFromCart(productId: number): void {
     this.cart = this.cart.filter(product => product.id !== productId);
 }
+  deleteProduct(id: number): Observable<any[]> {
+    return this.getProducts().pipe(
+      map(products => products.filter(product => product.id !== id)),
+      catchError(() => of([])) // Return an empty array on error
+    );
+  }
+  updateProducts(products: any[]): void {
+    // In a real app, you would send a PUT/PATCH request here
+    console.log('Updated products:', products);
+  }
 }
