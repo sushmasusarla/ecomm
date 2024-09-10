@@ -1,24 +1,57 @@
 [
     {
       "id": 1,
+      "image":[
+        {
+          "src": " https://thefoomer.in/cdn/shop/files/jpeg-optimizer_PATP5180.jpg?v=1685610639",
+          "width": "100",
+          "height":"50"
+        }
+
+      ],
+         
       "name": "Men's Shirt",
       "description": "A stylish men's shirt.",
       "price": 30.00
     },
     {
       "id": 2,
+      "image":[
+        {
+          "src": " https://www.jiomart.com/images/product/original/rvnmwzlds9/pt-z-women-s-banarasi-art-silk-woven-design-saree-with-unstitched-blouse-piece-product-images-rvnmwzlds9-0-202309251148.jpg?im=Resize=(500,630)",
+          "width": "100",
+          "height":"50"
+        }
+
+      ],
       "name": "Women's Saree",
       "description": "Elegant women's saree.",
       "price": 100.00
     },
     {
       "id": 3,
+      "image":[
+        {
+          "src": " https://www.jiomart.com/images/product/original/rvnmwzlds9/pt-z-women-s-banarasi-art-silk-woven-design-saree-with-unstitched-blouse-piece-product-images-rvnmwzlds9-0-202309251148.jpg?im=Resize=(500,630)",
+          "width": "100",
+          "height":"50"
+        }
+
+      ],
       "name": "Kids Night Suit",
       "description": "Comfortable night suit for kids.",
       "price": 25.00
     },
     {
       "id": 4,
+      "image":[
+        {
+          "src": " https://www.jiomart.com/images/product/original/rvnmwzlds9/pt-z-women-s-banarasi-art-silk-woven-design-saree-with-unstitched-blouse-piece-product-images-rvnmwzlds9-0-202309251148.jpg?im=Resize=(500,630)",
+          "width": "100",
+          "height":"50"
+        }
+
+      ],
       "name": "Gloves",
       "description": "Warm winter gloves.",
       "price": 15.00
