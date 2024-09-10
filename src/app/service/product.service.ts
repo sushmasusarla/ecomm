@@ -26,5 +26,7 @@ export class ProductService {
     return this.cart;
   }
 
-  
+   removeFromCart(productId: number): void {
+    this.cart = this.cart.filter(product => product.id !== productId);
+}
 }
