@@ -1,7 +1,19 @@
-<h1>Cart</h1>
-<div *ngFor="let item of cart">
-  <h2>{{ item.name }}</h2>
-  <p>{{ item.description }}</p>
-  <p>\${{ item.price }}</p>
-    <button (click)="removeFromCart(item.id)">Remove</button>
-</div>
+
+
+<div class="cart-container">
+    <div class="cart-item" *ngFor="let item of cartItems">
+      <img [src]="item.image" alt="{{ item.name }}" />
+      <h2>{{ item.name }}</h2>
+      <p>{{ item.description }}</p>
+      <p>\${{ item.price }}</p>
+      <p><strong>Details:</strong> {{ item.details }}</p>
+      <p><strong>Size:</strong> {{ item.size }}</p>
+      <p><strong>Offers:</strong> {{ item.offers }}</p>
+      <p><strong>Reviews:</strong></p>
+      <ul>
+        <li *ngFor="let review of item.reviews">{{ review }}</li>
+      </ul>
+      <button (click)="removeFromCart(item.id)">Remove from Cart</button>
+    </div>
+  </div>
+  
