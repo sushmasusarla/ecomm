@@ -64,6 +64,6 @@ export class ProductsService {
   }
 
   additem(data:datamodal) {
-    return this.http.post<datamodal>('addurl',data);
+    return this.http.post<datamodal>(this.apiUrl,data);
   }
 }
