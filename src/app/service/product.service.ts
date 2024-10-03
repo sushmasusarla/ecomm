@@ -1,42 +1,69 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable, BehaviorSubject, map } from 'rxjs';
+import { datamodal } from '../model';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
-   productsUrl = 'assets/products.json';
-   cart: any[] = [];
+export class ProductsService {
 
-  
 
-  constructor(private http:HttpClient) { }
+
+  private apiUrl = 'assets/products.json';  
+  private products: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  private cart = new BehaviorSubject<any[]>([]);
+  private addurl='assets/add.json';
+
+  cartItemsSubject: any;
+
+  constructor(private http: HttpClient) {
+    this.loadProducts();
+  }
+
+  private loadProducts(): void {
+    this.http.get<any[]>(this.apiUrl).subscribe(data => {
+      this.products.next(data);
+    });
+  }
+  getCartItems() {
+    return this.cartItemsSubject.asObservable();
+  }
 
   getProducts(): Observable<any[]> {
-    return this.http.get<any[]>(this.productsUrl);
-  }
-  addToCart(product: any) {
-    this.cart.push(product);
-    console.log('Cart:', this.cart);
-  }
-  getCart(): any[] {
-    return this.cart;
+    return this.products.asObservable();
   }
 
-   removeFromCart(productId: number): void {
-    this.cart = this.cart.filter(product => product.id !== productId);
-}
-  deleteProduct(id: number): Observable<any[]> {
-    return this.getProducts().pipe(
-      map(products => products.filter(product => product.id !== id)),
-      catchError(() => of([])) // Return an empty array on error
+  getProductById(id: number): Observable<any> {
+    return this.products.asObservable().pipe(
+      map((products: any[]) => products.find((product: { id: number; }) => product.id === id))
     );
   }
-  updateProducts(products: any[]): void {
-    // In a real app, you would send a PUT/PATCH request here
-    console.log('Updated products:', products);
+
+  addToCart(productId: number): void {
+    this.products.subscribe(products => {
+      const product = products.find(p => p.id === productId);
+      if (product) {
+        const currentCart = this.cart.getValue();
+        if (!currentCart.some(p => p.id === productId)) {
+          this.cart.next([...currentCart, product]);
+        }
+      }
+    });
+  }
+
+  getCart(): Observable<any[]> {
+    return this.cart.asObservable();
+  }
+
+  removeFromCart(productId: number): void {
+    const currentCart = this.cart.getValue();
+    this.cart.next(currentCart.filter(p => p.id !== productId));
+  }
+
+  additem(data:datamodal) {
+    return this.http.post<datamodal>('addurl',data);
   }
 }
