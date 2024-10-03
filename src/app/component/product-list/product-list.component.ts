@@ -1,32 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'src/app/service/product.service';
+import { Component,OnInit } from '@angular/core';
+import { ProductsService } from 'src/app/service/products.service';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css']
 })
-export class ProductListComponent  implements OnInit{
+export class ProductComponent implements OnInit {
+
+productform:any;  
+
   products: any[] = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductsService) {}
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe(data => {
       this.products = data;
     });
+
+
   }
-  addToCart(product: any) {
-       this.productService.addToCart(product);
-   // if (product.name === "Women's Saree") {
-     // this.productService.addToCart(product);
-    //}
+
+  addToCart(productId: number): void {
+    this.productService.addToCart(productId);
   }
-deleteProduct(id: number): void {
-  this.productService.deleteProduct(id).subscribe(updatedProducts => {
-    this.products = updatedProducts;
-    this.productService.updateProducts(updatedProducts); // Simulate saving the updated data
-  });
-}
 
 }
