@@ -10,7 +10,47 @@
       <button (click)="addToCart(product.id)">Add to Cart</button></a>
     </div>
   </div>
-</div>
+  <button (click)="toggleAddForm()"> {{ showAddForm ? 'Cancel' : 'Add Item' }}</button>
 
+
+  <div *ngIf="showAddForm">
+    <h2>Add New Product</h2>
+    <form (ngSubmit)="addNew()">
+      <label>Name:
+        <input [(ngModel)]="newProduct.name" name="name" required />
+      </label>
+      <label>Description:
+        <input [(ngModel)]="newProduct.description" name="description" required />
+      </label>
+      <label>Price:
+        <input [(ngModel)]="newProduct.price" name="price" type="number" required />
+      </label>
+      <label>Image URL:
+        <input [(ngModel)]="newProduct.image" name="image" required />
+      </label>
+      <label>Details:
+        <input [(ngModel)]="newProduct.details" name="details" required />
+      </label>
+      <label>Size:
+        <input [(ngModel)]="newProduct.size" name="size" required />
+      </label>
+      <label>Offers:
+        <input [(ngModel)]="newProduct.offers" name="offers" />
+      </label>
+      <label>Reviews:
+        <textarea [(ngModel)]="newProduct.reviews" name="reviews"></textarea>
+      </label>
+      <button type="submit" (click)="addThis()">Add Product</button>
+    </form>
+  </div>
+
+ <!--- <div *ngFor="let product of products">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <p>Price: {{ product.price | currency }}</p>
+    <img [src]="product.image" alt="{{ product.name }}" />
+  </div>
+</div>
+-->
 
 
