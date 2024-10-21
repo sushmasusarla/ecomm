@@ -16,8 +16,10 @@ export class ProductsService {
   private products: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   private cart = new BehaviorSubject<any[]>([]);
   private addurl='assets/add.json';
+  private producty: datamodal[] = [];
 
   cartItemsSubject: any;
+  currentProducts: any;
 
   constructor(private http: HttpClient) {
     this.loadProducts();
@@ -63,7 +65,13 @@ export class ProductsService {
     this.cart.next(currentCart.filter(p => p.id !== productId));
   }
 
-  additem(data:datamodal) {
-    return this.http.post<datamodal>(this.apiUrl,data);
+ // additem(data:datamodal) {
+   // return this.http.post<datamodal>(this.apiUrl,data);
+    
+  //}
+  addNewItem(newProduct: datamodal) { // Use the Product interface
+    const currentProducts= this.products.value;
+    newProduct.id = this.currentProducts.length ? Math.max(...this.currentProducts.map((p: { id: any; }) => p.id)) + 1 : 1; // Assign a new ID
+    this.products.next([...currentProducts, newProduct]); // Push the new product
   }
 }
