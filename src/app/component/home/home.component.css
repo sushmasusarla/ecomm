@@ -1,1 +1,81 @@
+.prod{
+  color: green;
+  border: 1px solid black;
+}
+.product-container {
+  background-color: #C5ADC5; /* Light background for the card container */
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 5px solid black;
+  padding:10px  30px ;
+  
+  grid-template-columns: repeat(4.1framework);
+    gap: 0.1rem;
+}
+
+.product-card {
+  display: flex;
+  flex-wrap:wrap; /* Ensures the cards wrap when screen size changes */
+ 
+  text-align: center;
+  width: 20%; /* Cards will take 23% width each */
+
+  background-color: #ECA427; /* Card background */
+  border: 5px solid grey;
+  margin-bottom: 20px; /* Space between rows */
+  transition: transform 0.2s ease-in-out;
+  margin-right: 25px;
+
+}
+
+.product-card:hover {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.product-card img {
+  width: 50%;
+  height: auto;
+}
+
+.cards {
+  background-color: wheat;
+}
+
+
+.image {
+  background-color: #323232;
+padding-right: 25px;
+padding-left: 40px;
+}
+
+/* Card container with background */
+.card-container {
+  background-color: #FF78AC; /* Light background for the card container */
+  padding: 20px;
+  border-radius: 15px;
+}
+
+/* Flexbox to align cards side by side */
+.cards-wrapper {
+  display: flex;
+  justify-content:space-around; /* Space between each card */
+  flex-wrap:wrap; /* Ensures the cards wrap when screen size changes */
+}
+
+/* Card styling */
+app-cart {
+  background-color: #ECA427; /* Card background */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for effect */
+  width: 23%; /* Cards will take 23% width each */
+  margin-bottom: 20px; /* Space between rows */
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+app-cart:hover {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
 
