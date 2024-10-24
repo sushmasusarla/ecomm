@@ -1,5 +1,64 @@
 
-<img src="https://media.istockphoto.com/id/498301640/vector/big-sale-banner.jpg?s=612x612&w=0&k=20&c=fppPOZ3LZCyvtDUiy6tR52xDWofX52Fdu3a7Ltc_fVY=" width="1000" height="350">
-<hr>
 
- 
+    
+     <!----- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="product-card" *ngFor="let item of products">
+    
+          <div class="carousel-item active" >  
+            <img [src]="item.image" class="d-block  " [alt]="item.name">
+          </div>
+        </div>
+    
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>  -->
+    
+      <hr>
+      <div class="image">  
+        <img src="https://media.istockphoto.com/id/498301640/vector/big-sale-banner.jpg?s=612x612&w=0&k=20&c=fppPOZ3LZCyvtDUiy6tR52xDWofX52Fdu3a7Ltc_fVY=" width="1200" height="350">
+      </div>
+    
+    <!----example 
+    
+    <div class="card-container">
+        <div class="cards-wrapper">
+           Use ngFor to dynamically create cards 
+          <app-cart *ngFor="let card of cards" 
+                    [title]="card.title" 
+                    [description]="card.description">
+          </app-cart>
+        </div>
+      </div>  -->
+<div class="prod"> 
+    <h1> Products</h1>
+
+      <div class="product-container">
+        
+        <div class="product-card" *ngFor="let product of products">
+          <img [src]="product.image" alt="{{ product.name }}" />
+          <h2>{{ product.name }}</h2>
+          <p>{{ product.description }}</p>
+          <p>\${{ product.price }}</p>
+          <br>
+          <a routerLink="/productlist"><button class="btn btn-primary">View</button></a>
+        </div>
+      </div>
+
+    </div>
+
+      
+    
+      
